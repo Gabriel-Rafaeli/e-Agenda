@@ -1,0 +1,22 @@
+{
+  "contatos": [
+
+    {
+      "id": 1,
+      "nome": "Alexandre Rech",
+      "telefone": "(49) 9 99292107",
+      "email": "rech@gmail.com",
+      "cargo": "Professor",
+      "empresa": "Academia do Programador"
+    },
+
+    {
+      "id": 2,
+      "nome": "Tiago Santini",
+      "telefone": "(49) 9 99292107",
+      "email": "tiago@gmail.com",
+      "cargo": "Professor",
+      "empresa": "Academia do Programador"
+    }
+  ]
+}
