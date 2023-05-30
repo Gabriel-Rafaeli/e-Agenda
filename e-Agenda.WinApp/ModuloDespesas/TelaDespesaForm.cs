@@ -36,15 +36,18 @@ namespace e_Agenda.WinApp.ModuloDespesas
                 txtValor.Text = value.Valor.ToString();
                 txtData.Value = value.Data;
 
-                for (int i = 0; i < chListCategorias.Items.Count; i++)
+                int i = 0;
+
+                for (int j = 0; j < chListCategorias.Items.Count; j++)
                 {
-                    for (int j = 0; j < value.CategoriasDaDespesa.Count; j++)
+                    Categoria categoria = (Categoria)chListCategorias.Items[j];
+
+                    if (value.CategoriasDaDespesa.Contains(categoria))
                     {
-                        if (chListCategorias.Items[i].Equals(value.CategoriasDaDespesa[j]))
-                        {
-                            chListCategorias.SetItemChecked(i, true);
-                        }
+                        chListCategorias.SetItemChecked(i, true);
                     }
+
+                    i++;
                 }
 
                 foreach (var item in cmbFormaPagamento.Items)
@@ -92,12 +95,9 @@ namespace e_Agenda.WinApp.ModuloDespesas
 
             string formaPgtoStr = Convert.ToString(cmbFormaPagamento.SelectedItem);
             FormaPagamentoEnum formaPgto;
-            bool formaPgtoValida = Enum.TryParse(formaPgtoStr, out formaPgto);
-
-            List<Categoria> categorias = chListCategorias.CheckedItems.Cast<Categoria>().ToList();
+            bool formaPgtoValida = Enum.TryParse(formaPgtoStr, out formaPgto);            
 
             despesa = new Despesa(descricao, valor, data, formaPgto);
-            despesa.CategoriasDaDespesa = categorias;
 
             int id = 0;
             if (!string.IsNullOrEmpty(idStr))
@@ -105,6 +105,8 @@ namespace e_Agenda.WinApp.ModuloDespesas
                 id = Convert.ToInt32(idStr);
             }
             despesa.id = id;
+
+            despesa.CategoriasDaDespesa.AddRange(chListCategorias.CheckedItems.Cast<Categoria>());
 
             List<string> erros = despesa.Validar().ToList();
 

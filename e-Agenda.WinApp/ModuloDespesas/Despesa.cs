@@ -30,6 +30,7 @@ namespace e_Agenda.WinApp.ModuloDespesas
             this.Valor = registroAtualizado.Valor;
             this.Data = registroAtualizado.Data;
             this.TipoPagamento = registroAtualizado .TipoPagamento;
+            this.CategoriasDaDespesa = registroAtualizado.CategoriasDaDespesa;
         }
 
         public override string[] Validar()
