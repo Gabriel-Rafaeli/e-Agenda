@@ -119,6 +119,8 @@ namespace e_Agenda.WinApp.ModuloCategoria
 
             TelaVisualizarCategoriaForm tela = new TelaVisualizarCategoriaForm(despesasPorCategoria);
 
+            tela.AtualizarLabel(categoria);
+
             tela.ShowDialog();
 
         }

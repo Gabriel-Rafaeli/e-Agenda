@@ -54,7 +54,7 @@ namespace e_Agenda.WinApp.ModuloDespesas
 
         public override string ToString()
         {
-            return "Id: " + id + ", " + Descricao + ", Valor: " + Valor + ", Data: " + Data + ", Forma Pagamento: " + TipoPagamento;
+            return "Id: " + id + ", " + Descricao;
         }
     }
 }

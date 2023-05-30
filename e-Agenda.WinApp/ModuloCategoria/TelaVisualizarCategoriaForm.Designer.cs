@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            lblcategoriaSelecionada = new Label();
+            lblCategoriaSelecionada = new Label();
             groupBox1 = new GroupBox();
             listDespesasDaCategoria = new ListBox();
             btnCancelar = new Button();
@@ -45,14 +45,14 @@
             label1.TabIndex = 0;
             label1.Text = "Categoria:";
             // 
-            // lblcategoriaSelecionada
+            // lblCategoriaSelecionada
             // 
-            lblcategoriaSelecionada.AutoSize = true;
-            lblcategoriaSelecionada.Location = new Point(91, 21);
-            lblcategoriaSelecionada.Name = "lblcategoriaSelecionada";
-            lblcategoriaSelecionada.Size = new Size(42, 15);
-            lblcategoriaSelecionada.TabIndex = 1;
-            lblcategoriaSelecionada.Text = "-------";
+            lblCategoriaSelecionada.AutoSize = true;
+            lblCategoriaSelecionada.Location = new Point(91, 21);
+            lblCategoriaSelecionada.Name = "lblCategoriaSelecionada";
+            lblCategoriaSelecionada.Size = new Size(42, 15);
+            lblCategoriaSelecionada.TabIndex = 1;
+            lblCategoriaSelecionada.Text = "-------";
             // 
             // groupBox1
             // 
@@ -90,7 +90,7 @@
             ClientSize = new Size(439, 330);
             Controls.Add(btnCancelar);
             Controls.Add(groupBox1);
-            Controls.Add(lblcategoriaSelecionada);
+            Controls.Add(lblCategoriaSelecionada);
             Controls.Add(label1);
             Name = "TelaVisualizarCategoriaForm";
             Text = "TelaVisualizarCategoriaForm";
@@ -102,7 +102,7 @@
         #endregion
 
         private Label label1;
-        private Label lblcategoriaSelecionada;
+        private Label lblCategoriaSelecionada;
         private GroupBox groupBox1;
         private ListBox listDespesasDaCategoria;
         private Button btnCancelar;
