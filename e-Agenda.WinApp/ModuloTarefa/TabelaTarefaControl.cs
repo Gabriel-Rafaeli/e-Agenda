@@ -12,8 +12,7 @@
 
             grid.ConfigurarGridSomenteLeitura();
         }
-
-       
+               
         private void ConfigurarColunas()
         {
             DataGridViewColumn[] colunas = new DataGridViewColumn[]

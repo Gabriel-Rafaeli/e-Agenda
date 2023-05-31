@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace e_Agenda.ConsoleApp
+namespace e_Agenda.WinApp.ModuloContato
 {
-    public class TelaPrincipalConsole
+    public interface IRepositorioContato : IRepositorio<Contato>
     {
-
     }
 }

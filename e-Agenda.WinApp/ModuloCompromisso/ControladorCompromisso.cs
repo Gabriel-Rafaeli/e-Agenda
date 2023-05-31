@@ -4,11 +4,11 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 {
     public class ControladorCompromisso : ControladorBase
     {
-        private RepositorioContato repositorioContato;
-        private RepositorioCompromisso repositorioCompromisso;
+        private IRepositorioContato repositorioContato;
+        private IRepositorioCompromisso repositorioCompromisso;
         ListagemCompromissoControl listagemCompromisso;
 
-        public ControladorCompromisso(RepositorioContato repositorioContato, RepositorioCompromisso repositorioCompromisso)
+        public ControladorCompromisso(IRepositorioContato repositorioContato, IRepositorioCompromisso repositorioCompromisso)
         {
             this.repositorioContato = repositorioContato;
             this.repositorioCompromisso = repositorioCompromisso;

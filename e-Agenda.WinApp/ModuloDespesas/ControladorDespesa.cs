@@ -10,10 +10,10 @@ namespace e_Agenda.WinApp.ModuloDespesas
 {
     public class ControladorDespesa : ControladorBase
     {
-        RepositorioDespesa repositorioDespesa;
+        IRepositorioDespesa repositorioDespesa;
         ListagemDespesaControl listagemDespesa;
-        RepositorioCategoria repositorioCategoria;
-        public ControladorDespesa(RepositorioDespesa repositorioDespesa, RepositorioCategoria repositorioCategoria)
+        IRepositorioCategoria repositorioCategoria;
+        public ControladorDespesa(IRepositorioDespesa repositorioDespesa, IRepositorioCategoria repositorioCategoria)
         {
             this.repositorioDespesa = repositorioDespesa;
             this.repositorioCategoria = repositorioCategoria;

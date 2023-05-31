@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace e_Agenda.WinApp.ModuloDespesas
 {
+    [Serializable]
     public class Despesa : EntidadeBase<Despesa>
     {
         public string Descricao { get; set; }

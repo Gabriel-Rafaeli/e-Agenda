@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace e_Agenda.WinApp.ModuloCategoria
 {
+    [Serializable]
     public class Categoria : EntidadeBase<Categoria>
     {
         public string Titulo { get; set; }
+
         public List<Despesa> Despesas { get; set; }
 
         public Categoria(string titulo)
