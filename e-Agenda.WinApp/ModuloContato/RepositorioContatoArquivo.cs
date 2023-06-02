@@ -8,14 +8,14 @@ namespace e_Agenda.WinApp.ModuloContato
 {
     public class RepositorioContatoArquivo : RepositorioArquivoBase<Contato>, IRepositorioContato
     {
-        public RepositorioContatoArquivo(List<Contato> contatos)
+        public RepositorioContatoArquivo(ContextoDados contexto) : base(contexto)
         {
-            NOME_ARQUIVO = "C:\\Users\\JV\\Desktop\\Gabriel\\Projetos\\e-Agenda-2023-master\\Arquivos\\contato-bin";
+            
+        }
 
-            listaRegistros = contatos;
-
-            if (File.Exists(NOME_ARQUIVO))
-                CarregarRegistrosDoArquivo();
+        protected override List<Contato> ObterRegistros()
+        {
+            return contextoDados.contatos;
         }
     }
 }

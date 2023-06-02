@@ -1,4 +1,5 @@
 ﻿using e_Agenda.WinApp.ModuloContato;
+using e_Agenda.WinApp.ModuloDespesas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,35 +11,35 @@ namespace e_Agenda.WinApp.ModuloTarefa
 {
     public class RepositorioTarefaArquivo : RepositorioArquivoBase<Tarefa>, IRepositorioTarefa
     {
-        public RepositorioTarefaArquivo(List<Tarefa> tarefas)
+        public RepositorioTarefaArquivo(ContextoDados contexto) : base(contexto)
         {
-            NOME_ARQUIVO = "C:\\Users\\JV\\Desktop\\Gabriel\\Projetos\\e-Agenda-2023-master\\Arquivos\\tarefa-bin";
-
-            listaRegistros = tarefas;
-
-            if (File.Exists(NOME_ARQUIVO))
-                CarregarRegistrosDoArquivo();
+            
         }
 
         public List<Tarefa> SelecionarConcluidas()
         {
-            return listaRegistros
+            return ObterRegistros()
                     .Where(x => x.percentualConcluido == 100)
                     .ToList();
         }
 
         public List<Tarefa> SelecionarPendentes()
         {
-            return listaRegistros
+            return ObterRegistros()
                     .Where(x => x.percentualConcluido < 100)
                     .ToList();
         }
 
         public List<Tarefa> SelecionarTodosOrdenadosPorPrioridade()
         {
-            return listaRegistros
+            return ObterRegistros()
                     .OrderByDescending(x => x.prioridade)
                     .ToList();
+        }
+
+        protected override List<Tarefa> ObterRegistros()
+        {
+            return contextoDados.tarefas;
         }
     }
 }

@@ -8,26 +8,27 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 {
     public class RepositorioCompromissoArquivo : RepositorioArquivoBase<Compromisso>, IRepositorioCompromisso
     {
-        public RepositorioCompromissoArquivo(List<Compromisso> compromissos)
+        public RepositorioCompromissoArquivo(ContextoDados contexto) : base(contexto)
         {
-            NOME_ARQUIVO = "C:\\Users\\JV\\Desktop\\Gabriel\\Projetos\\e-Agenda-2023-master\\Arquivos\\compromisso-bin";
-            listaRegistros = compromissos;
-
-            if (File.Exists(NOME_ARQUIVO))
-                CarregarRegistrosDoArquivo();
+            
         }
 
         public List<Compromisso> SelecionarCompromissosPassados(DateTime hoje)
         {
-            return listaRegistros.Where(x => x.data.Date < hoje.Date).ToList();
+            return ObterRegistros().Where(x => x.data.Date < hoje.Date).ToList();
         }
 
         public List<Compromisso> SelecionarCompromissosFuturos(DateTime dataInicio, DateTime dataFinal)
         {
-            return listaRegistros
+            return ObterRegistros()
                 .Where(x => x.data > dataInicio)
                 .Where(x => x.data < dataFinal)
                 .ToList();
+        }
+
+        protected override List<Compromisso> ObterRegistros()
+        {
+            return contextoDados.compromissos;
         }
     }
 }
